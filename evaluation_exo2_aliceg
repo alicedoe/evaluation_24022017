@@ -1,0 +1,10 @@
+a- Expliquez l'architecture de l'application (fonctionnement général) :
+Le programme affiche un champ texte qui attends la saisie d'une requête de type SQL, ajax utilise le fichier sqlService.php pour se connecter et executer la requête puis affiche s'il y en a un le résultat sous forme de tableau
+
+b- Expliquez en quoi consiste chaque fichier.
+	-Commenter tout le code : Voir chaque fichier joint
+	-Tester le fonctionnement de l'application avec les requêtes de l'exercice précedent : ok tout fonctionne
+
+c- (donc dans le fichier à renvoyer) Expliquez en francais des améliorations possibles ( sur au moins 3 des compétences de mise en oeuvre)
+
+CSS/Jquery : la mise en forme contenu dans le ui.js transposable en css

@@ -1,0 +1,57 @@
+$(document).ready(function(){
+	//a utiliser si le navigateur ne capture pas l'evenement du click
+});
+
+
+$("#send").click(function(){
+	$.ajax({
+        async: true,
+        type: 'POST',
+        dataType: 'text',
+        data:{
+            "msg":$("#sqlRequest").val()
+        },
+        url: "./sqlService.php",
+        success: function (data, textStatus, jqXHR) {
+			var result = JSON.parse(data);
+			if(result.length > 0){
+				afficheResult(result);
+			}else{
+				$("#result").text("Erreur dans la queteRe SQL !");
+			}            
+        },
+		error: function (jqXHR, textStatus, errorThrown) {
+            $("#result").text(textStatus);
+        }        
+    });
+});
+
+
+var first;
+
+function afficheResult(resultat){
+	first = true;
+	$("#result").empty();
+	var table = document.createElement("table");
+	$("#result").append(table);
+	var titre = document.createElement("tr");
+	$(table).append(titre);
+	$.each(resultat,function(key,value){		
+		var line = document.createElement("tr");
+		$.each(value,function(key,value){
+			var cell = document.createElement("td");			
+			if(Number.isInteger(parseInt(key)) ){
+				$(cell).text(value);
+				$(line).append(cell);
+			}else{
+				if(first){
+					var cellTitre = document.createElement("th");
+					$(cellTitre).text(key);
+					$(titre).append(cellTitre);
+				}
+			}			
+		})
+		first = false;
+		$(table).append(line);
+	});	
+}

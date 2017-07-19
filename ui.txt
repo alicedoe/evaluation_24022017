@@ -1,0 +1,17 @@
+$(document).ready(function(){
+	var wWidth = $(window).width();
+	var TAWidth = $("textarea").width();
+	var BWidth = $("button").width();
+	var wHeight = $(window).height();
+	
+	var BHeight = $("button").height();
+	$("textarea").css({
+		"left" : ((wWidth-TAWidth)/2)+"px",
+		"height" : (wHeight/5)+"px"
+		
+	});
+	var TAHeight = $("textarea").height();
+	$("button").css({
+		"left" : ((wWidth-BWidth)/2)+"px"
+	});
+});
